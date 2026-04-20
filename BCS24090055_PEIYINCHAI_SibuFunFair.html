@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive digital brochure for Sibu Parkson Field Fun Fair 2026 - FREE admission, carnival rides, food stalls, cultural performances and more!" />
+  <title>Sibu Parkson Field Fun Fair 2026 | 15-17 May</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f472b6;
+      --purple: #7c3aed;
+      --lav: #a78bfa;
+      --blue: #60a5fa;
+      --yellow: #fbbf24;
+      --orange: #fb923c;
+      --mint: #34d399;
+      --text: #3b1764;
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.85);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: linear-gradient(-45deg, #a18cd1, #fbc2eb, #8fd3f4, #ff9a9e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ANIMATED BLOBS */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+    .b1 { width: 500px; height: 500px; background: #e879f9; top: -180px; left: -120px; }
+    .b2 { width: 420px; height: 420px; background: #818cf8; top: 25%; right: -130px; animation-delay: 4s; }
+    .b3 { width: 360px; height: 360px; background: #f9a8d4; bottom: 5%; left: 5%; animation-delay: 8s; }
+    @keyframes drift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(50px, 40px) scale(1.12); }
+    }
+
+    /* CONFETTI */
+    #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+    .cf {
+      position: absolute;
+      border-radius: 50%;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 0.9; }
+      100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* BROCHURE WRAPPER */
+    .brochure-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      border: 1.5px solid var(--glass-border);
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+      overflow: hidden;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.45);
+      border-bottom: 1.5px solid rgba(167, 139, 250, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    .logo {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.35rem;
+      color: var(--purple);
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text);
+      opacity: 0.8;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--purple);
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    .lang-btn {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+    }
+    .lang-btn:hover { transform: scale(1.05); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 50px 30px 40px;
+      position: relative;
+    }
+    .hero-art {
+      width: min(460px, 88vw);
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      animation: pop 0.6s ease both;
+    }
+    @keyframes pop {
+      from { transform: scale(0.4); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    h1.title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      background: linear-gradient(135deg, #7c3aed, #db2777, #ea580c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      animation: slideUp 0.7s ease both 0.1s;
+    }
+    .subtitle {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--purple);
+      opacity: 0.75;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+      animation: slideUp 0.7s ease both 0.2s;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .info-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 24px;
+      animation: slideUp 0.7s ease both 0.3s;
+    }
+    .pill {
+      background: rgba(255, 255, 255, 0.75);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(167, 139, 250, 0.35);
+      padding: 8px 18px;
+      border-radius: 28px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-free {
+      background: linear-gradient(135deg, #34d399, #059669);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: slideUp 0.7s ease both 0.4s;
+    }
+    .btn-main {
+      background: linear-gradient(135deg, #7c3aed, #db2777);
+      color: #fff;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 28px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 7px 22px rgba(124, 58, 237, 0.35);
+    }
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 13px 30px rgba(124, 58, 237, 0.45);
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.75);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      color: var(--purple);
+      border: 2px solid var(--lav);
+      padding: 13px 28px;
+      border-radius: 28px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background: var(--purple);
+      color: #fff;
+      border-color: var(--purple);
+    }
+
+    /* COUNTDOWN */
+    .countdown-bar {
+      margin-top: 32px;
+      background: rgba(255, 255, 255, 0.75);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(167, 139, 250, 0.35);
+      border-radius: 20px;
+      padding: 16px 28px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      animation: slideUp 0.7s ease both 0.5s;
+    }
+    .cd-unit {
+      text-align: center;
+    }
+    .cd-num {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      color: var(--purple);
+      line-height: 1;
+    }
+    .cd-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--lav);
+      letter-spacing: 1px;
+    }
+    .cd-sep {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      color: #d8b4fe;
+      padding-top: 2px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 40px;
+    }
+    .sec-alt {
+      background: rgba(255, 255, 255, 0.28);
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-header h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .section-header p {
+      font-size: 0.92rem;
+      color: var(--purple);
+      opacity: 0.7;
+    }
+
+    /* ACTIVITIES GRID */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .activity-card {
+      background: rgba(255, 255, 255, 0.75);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(167, 139, 250, 0.3);
+      border-radius: 22px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .activity-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 38px rgba(124, 58, 237, 0.15);
+    }
+    .activity-emoji {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 14px;
+    }
+    .activity-card h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      color: var(--purple);
+      margin-bottom: 8px;
+    }
+    .activity-card p {
+      font-size: 0.87rem;
+      color: var(--purple);
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+
+    /* SCHEDULE TABS */
+    .schedule-tabs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+    .schedule-tab {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1.5px solid rgba(167, 139, 250, 0.32);
+      padding: 8px 22px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      color: var(--purple);
+    }
+    .schedule-tab.active {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border-color: transparent;
+    }
+    .schedule-content {
+      display: none;
+    }
+    .schedule-content.active {
+      display: block;
+    }
+    .schedule-box {
+      background: rgba(255, 255, 255, 0.75);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(167, 139, 250, 0.28);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .schedule-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.13);
+    }
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+    .schedule-time {
+      background: linear-gradient(135deg, var(--lav), var(--pink));
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .schedule-info h4 {
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 3px;
+    }
+    .schedule-info p {
+      font-size: 0.82rem;
+      color: var(--purple);
+      opacity: 0.72;
+    }
+
+    /* LOCATION */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .contact-box {
+      background: rgba(255, 255, 255, 0.75);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(167, 139, 250, 0.28);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-box h3 {
+      font-family: 'Fredoka One', cursive;
+      color: var(--purple);
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .contact-box p {
+      font-size: 0.88rem;
+      color: var(--purple);
+      opacity: 0.8;
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .map-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(167, 139, 250, 0.45);
+      height: 320px;
+      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.12);
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* SOCIAL */
+    .social-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 28px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+    .social-btn.facebook { background: #1877f2; }
+    .social-btn.twitter { background: #1da1f2; }
+    .social-btn.whatsapp { background: #25d366; }
+    .share-container {
+      text-align: center;
+    }
+    .share-btn {
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      color: #fff;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 28px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: all 0.3s;
+      margin-top: 18px;
+    }
+    .share-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 40px 24px;
+      border-top: 1.5px solid rgba(167, 139, 250, 0.22);
+      background: rgba(255, 255, 255, 0.4);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    .footer-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: var(--purple);
+      margin-bottom: 8px;
+    }
+    footer p {
+      font-size: 0.82rem;
+      color: var(--purple);
+      opacity: 0.65;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .location-grid { grid-template-columns: 1fr; }
+      .countdown-bar { gap: 12px; padding: 14px 20px; }
+      .cd-num { font-size: 1.5rem; }
+      nav { padding: 16px 24px; }
+      section { padding: 50px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <!-- Confetti Container -->
+  <div id="confetti"></div>
+
+  <div class="brochure-wrapper">
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">🎡 Fun Fair 2026</div>
+      <ul class="nav-links">
+        <li><a href="#activities" data-i18n="navAct">Activities</a></li>
+        <li><a href="#schedule" data-i18n="navSch">Schedule</a></li>
+        <li><a href="#location" data-i18n="navLoc">Location</a></li>
+        <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+      </ul>
+      <button class="lang-btn" id="langToggle">🌐 BM</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <!-- Fun Fair SVG Illustration -->
+      <svg class="hero-art" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" aria-label="Fun Fair Illustration">
+        <rect x="0" y="140" width="480" height="130" rx="20" fill="#e0f2fe" opacity="0.45"/>
+        <!-- Ferris Wheel -->
+        <g transform="translate(345,90)">
+          <circle cx="0" cy="0" r="78" fill="none" stroke="#c4b5fd" stroke-width="2.5"/>
+          <line x1="-78" y1="0" x2="78" y2="0" stroke="#c4b5fd" stroke-width="1.5"/>
+          <line x1="0" y1="-78" x2="0" y2="78" stroke="#c4b5fd" stroke-width="1.5"/>
+          <line x1="-55" y1="-55" x2="55" y2="55" stroke="#c4b5fd" stroke-width="1.5"/>
+          <line x1="55" y1="-55" x2="-55" y2="55" stroke="#c4b5fd" stroke-width="1.5"/>
+          <circle cx="0" cy="0" r="11" fill="#7c3aed"/>
+          <rect x="-10" y="-90" width="20" height="17" rx="5" fill="#f472b6"/>
+          <rect x="-10" y="73" width="20" height="17" rx="5" fill="#60a5fa"/>
+          <rect x="73" y="-10" width="17" height="20" rx="5" fill="#fbbf24"/>
+          <rect x="-90" y="-10" width="17" height="20" rx="5" fill="#34d399"/>
+          <line x1="0" y1="78" x2="0" y2="148" stroke="#6d28d9" stroke-width="2.5"/>
+          <line x1="-32" y1="148" x2="32" y2="148" stroke="#6d28d9" stroke-width="2.5"/>
+        </g>
+        <!-- Carousel -->
+        <g transform="translate(125,95)">
+          <polygon points="0,-82 -84,0 84,0" fill="#f9a8d4"/>
+          <polygon points="0,-82 -42,0 0,0" fill="#fbbf24"/>
+          <polygon points="0,-82 42,0 84,0" fill="#fbbf24"/>
+          <line x1="0" y1="-2" x2="0" y2="72" stroke="#7c3aed" stroke-width="2.5"/>
+          <line x1="-84" y1="0" x2="84" y2="0" stroke="#7c3aed" stroke-width="1.5"/>
+          <line x1="-84" y1="0" x2="-84" y2="72" stroke="#7c3aed" stroke-width="1.5"/>
+          <line x1="84" y1="0" x2="84" y2="72" stroke="#7c3aed" stroke-width="1.5"/>
+          <rect x="-88" y="67" width="176" height="13" rx="4" fill="#ddd6fe"/>
+          <ellipse cx="-46" cy="42" rx="13" ry="8" fill="#fff" stroke="#f472b6" stroke-width="1.5"/>
+          <ellipse cx="0" cy="52" rx="13" ry="8" fill="#fff" stroke="#60a5fa" stroke-width="1.5"/>
+          <ellipse cx="46" cy="42" rx="13" ry="8" fill="#fff" stroke="#fbbf24" stroke-width="1.5"/>
+        </g>
+        <!-- Balloons -->
+        <circle cx="36" cy="58" r="21" fill="#f472b6" opacity="0.9"/>
+        <circle cx="62" cy="31" r="17" fill="#a78bfa" opacity="0.9"/>
+        <circle cx="16" cy="28" r="15" fill="#fbbf24" opacity="0.9"/>
+        <circle cx="454" cy="38" r="19" fill="#34d399" opacity="0.9"/>
+        <circle cx="432" cy="12" r="15" fill="#60a5fa" opacity="0.9"/>
+      </svg>
+
+      <div class="badge">
+        <span data-i18n="badgeText">✨ FREE ADMISSION · EVERYONE WELCOME ✨</span>
+      </div>
+
+      <h1 class="title">Sibu Parkson Field<br>Fun Fair 2026</h1>
+      <div class="subtitle">MAJLIS PERBANDARAN SIBU</div>
+
+      <div class="info-pills">
+        <div class="pill">📅 <span data-i18n="date">15–17 May 2026</span></div>
+        <div class="pill">🕓 <span data-i18n="time">4:00 PM – 10:00 PM Daily</span></div>
+        <div class="pill">📍 Sibu Parkson Field</div>
+        <div class="pill pill-free">🎟️ FREE!</div>
+      </div>
+
+      <div class="btns">
+        <button class="btn-main" onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">
+          🎉 <span data-i18n="exploreBtn">Explore Activities</span>
+        </button>
+        <button class="btn-outline" onclick="document.getElementById('schedule').scrollIntoView({behavior:'smooth'})">
+          📋 <span data-i18n="scheduleBtn">View Schedule</span>
+        </button>
+      </div>
+
+      <div class="countdown-bar">
+        <div class="cd-unit">
+          <div class="cd-num" id="days">--</div>
+          <div class="cd-label" data-i18n="labelDays">Days</div>
+        </div>
+        <div class="cd-sep">|</div>
+        <div class="cd-unit">
+          <div class="cd-num" id="hours">--</div>
+          <div class="cd-label" data-i18n="labelHours">Hours</div>
+        </div>
+        <div class="cd-sep">|</div>
+        <div class="cd-unit">
+          <div class="cd-num" id="minutes">--</div>
+          <div class="cd-label" data-i18n="labelMins">Minutes</div>
+        </div>
+        <div class="cd-sep">|</div>
+        <div class="cd-unit">
+          <div class="cd-num" id="seconds">--</div>
+          <div class="cd-label" data-i18n="labelSecs">Seconds</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities">
+      <div class="section-header reveal">
+        <h2>🎠 <span data-i18n="activitiesTitle">Activities</span></h2>
+        <p data-i18n="activitiesSub">Something exciting for every member of the family!</p>
+      </div>
+      <div class="activities-grid">
+        <div class="activity-card reveal">
+          <span class="activity-emoji">🎡</span>
+          <h3 data-i18n="a1t">Carnival Games & Rides</h3>
+          <p data-i18n="a1d">Thrilling rides and classic carnival games for all ages to enjoy.</p>
+        </div>
+        <div class="activity-card reveal">
+          <span class="activity-emoji">🍜</span>
+          <h3 data-i18n="a2t">Food & Beverage Stalls</h3>
+          <p data-i18n="a2d">Savour authentic local delicacies and refreshing drinks.</p>
+        </div>
+        <div class="activity-card reveal">
+          <span class="activity-emoji">🎭</span>
+          <h3 data-i18n="a3t">Live Cultural Performances</h3>
+          <p data-i18n="a3d">Traditional dances from Sarawak's diverse cultural heritage.</p>
+        </div>
+        <div class="activity-card reveal">
+          <span class="activity-emoji">🛝</span>
+          <h3 data-i18n="a4t">Children's Playground</h3>
+          <p data-i18n="a4d">A safe, dedicated fun zone for our youngest guests.</p>
+        </div>
+        <div class="activity-card reveal">
+          <span class="activity-emoji">🎁</span>
+          <h3 data-i18n="a5t">Lucky Draw & Prizes</h3>
+          <p data-i18n="a5d">Daily lucky draws with amazing prizes!</p>
+        </div>
+        <div class="activity-card reveal">
+          <span class="activity-emoji">🎨</span>
+          <h3 data-i18n="a6t">Local Craft Exhibition</h3>
+          <p data-i18n="a6d">Browse beautiful handmade crafts by local artisans.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="sec-alt">
+      <div class="section-header reveal">
+        <h2>📅 <span data-i18n="scheduleTitle">Daily Schedule</span></h2>
+        <p data-i18n="scheduleSub">3 jam-packed days of non-stop entertainment!</p>
+      </div>
+
+      <div class="schedule-tabs">
+        <div class="schedule-tab active" onclick="showSchedule('day1', this)">
+          <span data-i18n="day1Tab">May 15 (Fri)</span>
+        </div>
+        <div class="schedule-tab" onclick="showSchedule('day2', this)">
+          <span data-i18n="day2Tab">May 16 (Sat)</span>
+        </div>
+        <div class="schedule-tab" onclick="showSchedule('day3', this)">
+          <span data-i18n="day3Tab">May 17 (Sun)</span>
+        </div>
+      </div>
+
+      <div id="day1" class="schedule-content active reveal">
+        <div class="schedule-box">
+          <div class="schedule-row">
+            <div class="schedule-time">4:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d1e1t">Official Opening Ceremony</h4>
+              <p data-i18n="d1e1d">Welcome speech & ribbon-cutting by Mayor of Sibu</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">4:30 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d1e2t">Carnival Games & Rides Open</h4>
+              <p data-i18n="d1e2d">All rides and game booths go live!</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">6:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d1e3t">Cultural Dance Performance</h4>
+              <p data-i18n="d1e3d">Iban & Melanau traditional dance showcase</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">8:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d1e4t">Lucky Draw – Round 1</h4>
+              <p data-i18n="d1e4d">Win daily consolation prizes</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">9:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d1e5t">Live Band Performance</h4>
+              <p data-i18n="d1e5d">Local bands close the night</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="day2" class="schedule-content reveal">
+        <div class="schedule-box">
+          <div class="schedule-row">
+            <div class="schedule-time">4:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d2e1t">Gates Open · All Activities Begin</h4>
+              <p data-i18n="d2e1d">Full day of fun across all zones</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">5:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d2e2t">Children's Fun Zone Launch</h4>
+              <p data-i18n="d2e2d">Special games & activities for little ones</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">7:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d2e3t">Craft Exhibition Guided Tour</h4>
+              <p data-i18n="d2e3d">Meet local artisans and watch live demonstrations</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">8:30 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d2e4t">Lucky Draw – Round 2</h4>
+              <p data-i18n="d2e4d">Bigger prizes tonight!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="day3" class="schedule-content reveal">
+        <div class="schedule-box">
+          <div class="schedule-row">
+            <div class="schedule-time">4:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d3e1t">Final Day – Gates Open</h4>
+              <p data-i18n="d3e1d">Last chance to enjoy all activities</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">5:30 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d3e2t">Family Games Competition</h4>
+              <p data-i18n="d3e2d">Register at main booth — prizes for winners!</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">7:30 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d3e3t">Grand Cultural Showcase</h4>
+              <p data-i18n="d3e3d">All cultural groups perform together</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">9:00 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d3e4t">🏆 GRAND LUCKY DRAW</h4>
+              <p data-i18n="d3e4d">Grand Prize: RM5,000 cash!</p>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time">9:45 PM</div>
+            <div class="schedule-info">
+              <h4 data-i18n="d3e5t">Closing Ceremony & Fireworks 🎆</h4>
+              <p data-i18n="d3e5d">A spectacular end to Fun Fair 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="location">
+      <div class="section-header reveal">
+        <h2>📍 <span data-i18n="locationTitle">Location & Contact</span></h2>
+        <p data-i18n="locationSub">Sibu Parkson Field, 96000 Sibu, Sarawak</p>
+      </div>
+      <div class="location-grid">
+        <div class="contact-box reveal">
+          <h3>Sibu Municipal Council</h3>
+          <p data-i18n="contactText">Join us at the spacious Sibu Parkson Field. Ample parking available nearby.</p>
+          <p><strong>📞 Phone:</strong> +60 84-330 999</p>
+          <p><strong>✉️ Email:</strong> funfair2026@mpsibu.gov.my</p>
+          <p><strong>🌐 Website:</strong> www.mpsibu.gov.my</p>
+        </div>
+        <div class="map-frame reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15933.0!2d111.8235!3d2.3052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSibu%2C+Sarawak!5e0!3m2!1sen!2smy!4v1680000000"
+            allowfullscreen
+            loading="lazy"
+            title="Sibu Parkson Field Map">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social & Share -->
+    <section id="contact" class="sec-alt">
+      <div class="section-header reveal">
+        <h2>📢 <span data-i18n="socialTitle">Follow & Share</span></h2>
+        <p data-i18n="socialSub">Stay updated and spread the excitement!</p>
+      </div>
+      <div class="social-buttons reveal">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://sibufunfair2026.com" target="_blank" rel="noopener" class="social-btn facebook">
+          📘 Facebook
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Join%20Sibu%20Fun%20Fair%202026!&url=https://sibufunfair2026.com" target="_blank" rel="noopener" class="social-btn twitter">
+          🐦 Twitter / X
+        </a>
+        <a href="https://api.whatsapp.com/send?text=Join%20Sibu%20Fun%20Fair%202026!%20https://sibufunfair2026.com" target="_blank" rel="noopener" class="social-btn whatsapp">
+          💬 WhatsApp
+        </a>
+      </div>
+      <div class="share-container">
+        <button class="share-btn" onclick="shareEvent()">
+          🔗 <span data-i18n="shareBtn">Share This Event</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-title">🎡 Sibu Fun Fair 2026 🎡</div>
+      <p data-i18n="footerText">© 2026 Majlis Perbandaran Sibu · All rights reserved</p>
+    </footer>
+  </div>
+
+  <script>
+    // ===== CONFETTI ANIMATION =====
+    const confettiContainer = document.getElementById('confetti');
+    const confettiColors = ['#f472b6', '#a78bfa', '#fbbf24', '#60a5fa', '#34d399', '#fb923c'];
+    
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'cf';
+      const size = Math.random() * 10 + 4;
+      confetti.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${Math.random() * 100}%;
+        background: ${confettiColors[Math.floor(Math.random() * confettiColors.length)]};
+        animation-duration: ${6 + Math.random() * 9}s;
+        animation-delay: ${Math.random() * 7}s;
+      `;
+      confettiContainer.appendChild(confetti);
+    }
+
+    // ===== COUNTDOWN TIMER =====
+    function updateCountdown() {
+      const targetDate = new Date('2026-05-15T16:00:00+08:00');
+      const now = new Date();
+      const diff = Math.max(targetDate - now, 0);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ===== SCHEDULE TABS =====
+    function showSchedule(dayId, element) {
+      document.querySelectorAll('.schedule-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.schedule-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById(dayId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    // ===== MULTI-LANGUAGE SUPPORT =====
+    const translations = {
+      en: {
+        navAct: "Activities", navSch: "Schedule", navLoc: "Location", navContact: "Contact",
+        badgeText: "✨ FREE ADMISSION · EVERYONE WELCOME ✨",
+        date: "15–17 May 2026", time: "4:00 PM – 10:00 PM Daily",
+        exploreBtn: "Explore Activities", scheduleBtn: "View Schedule",
+        labelDays: "Days", labelHours: "Hours", labelMins: "Minutes", labelSecs: "Seconds",
+        activitiesTitle: "Activities", activitiesSub: "Something exciting for every member of the family!",
+        a1t: "Carnival Games & Rides", a1d: "Thrilling rides and classic carnival games for all ages to enjoy.",
+        a2t: "Food & Beverage Stalls", a2d: "Savour authentic local delicacies and refreshing drinks.",
+        a3t: "Live Cultural Performances", a3d: "Traditional dances from Sarawak's diverse cultural heritage.",
+        a4t: "Children's Playground", a4d: "A safe, dedicated fun zone for our youngest guests.",
+        a5t: "Lucky Draw & Prizes", a5d: "Daily lucky draws with amazing prizes!",
+        a6t: "Local Craft Exhibition", a6d: "Browse beautiful handmade crafts by local artisans.",
+        scheduleTitle: "Daily Schedule", scheduleSub: "3 jam-packed days of non-stop entertainment!",
+        day1Tab: "May 15 (Fri)", day2Tab: "May 16 (Sat)", day3Tab: "May 17 (Sun)",
+        d1e1t: "Official Opening Ceremony", d1e1d: "Welcome speech & ribbon-cutting by Mayor of Sibu",
+        d1e2t: "Carnival Games & Rides Open", d1e2d: "All rides and game booths go live!",
+        d1e3t: "Cultural Dance Performance", d1e3d: "Iban & Melanau traditional dance showcase",
+        d1e4t: "Lucky Draw – Round 1", d1e4d: "Win daily consolation prizes",
+        d1e5t: "Live Band Performance", d1e5d: "Local bands close the night",
+        d2e1t: "Gates Open · All Activities Begin", d2e1d: "Full day of fun across all zones",
+        d2e2t: "Children's Fun Zone Launch", d2e2d: "Special games & activities for little ones",
+        d2e3t: "Craft Exhibition Guided Tour", d2e3d: "Meet local artisans and watch live demonstrations",
+        d2e4t: "Lucky Draw – Round 2", d2e4d: "Bigger prizes tonight!",
+        d3e1t: "Final Day – Gates Open", d3e1d: "Last chance to enjoy all activities",
+        d3e2t: "Family Games Competition", d3e2d: "Register at main booth — prizes for winners!",
+        d3e3t: "Grand Cultural Showcase", d3e3d: "All cultural groups perform together",
+        d3e4t: "🏆 GRAND LUCKY DRAW", d3e4d: "Grand Prize: RM5,000 cash!",
+        d3e5t: "Closing Ceremony & Fireworks 🎆", d3e5d: "A spectacular end to Fun Fair 2026",
+        locationTitle: "Location & Contact", locationSub: "Sibu Parkson Field, 96000 Sibu, Sarawak",
+        contactText: "Join us at the spacious Sibu Parkson Field. Ample parking available nearby.",
+        socialTitle: "Follow & Share", socialSub: "Stay updated and spread the excitement!",
+        shareBtn: "Share This Event", footerText: "© 2026 Majlis Perbandaran Sibu · All rights reserved"
+      },
+      bm: {
+        navAct: "Aktiviti", navSch: "Jadual", navLoc: "Lokasi", navContact: "Hubungi",
+        badgeText: "✨ KEMASUKAN PERCUMA · SEMUA DIJEMPUT ✨",
+        date: "15–17 Mei 2026", time: "4:00 PTG – 10:00 MLM Setiap Hari",
+        exploreBtn: "Jelajah Aktiviti", scheduleBtn: "Lihat Jadual",
+        labelDays: "Hari", labelHours: "Jam", labelMins: "Minit", labelSecs: "Saat",
+        activitiesTitle: "Aktiviti", activitiesSub: "Sesuatu yang menarik untuk setiap ahli keluarga!",
+        a1t: "Permainan & Tunggangan Karnival", a1d: "Tunggangan seru dan permainan untuk semua peringkat umur.",
+        a2t: "Gerai Makanan & Minuman", a2d: "Nikmati kelazatan tempatan dan minuman segar.",
+        a3t: "Persembahan Budaya Langsung", a3d: "Tarian tradisional dari warisan budaya Sarawak.",
+        a4t: "Taman Permainan Kanak-kanak", a4d: "Zon selamat dan menyeronokkan untuk tetamu termuda.",
+        a5t: "Cabutan Bertuah & Hadiah", a5d: "Cabutan bertuah harian dengan hadiah menarik!",
+        a6t: "Pameran Kraftangan Tempatan", a6d: "Layari kraftangan buatan tangan artisan tempatan.",
+        scheduleTitle: "Jadual Harian", scheduleSub: "3 hari penuh hiburan tanpa henti!",
+        day1Tab: "15 Mei (Jum)", day2Tab: "16 Mei (Sab)", day3Tab: "17 Mei (Ahd)",
+        d1e1t: "Majlis Pembukaan Rasmi", d1e1d: "Ucapan alu-aluan oleh Datuk Bandar Sibu",
+        d1e2t: "Permainan Karnaval Dibuka", d1e2d: "Semua tunggangan beroperasi!",
+        d1e3t: "Persembahan Tarian Budaya", d1e3d: "Persembahan tarian Iban & Melanau",
+        d1e4t: "Cabutan Bertuah – Pusingan 1", d1e4d: "Menangi hadiah saguhati",
+        d1e5t: "Persembahan Band Langsung", d1e5d: "Band tempatan menutup malam",
+        d2e1t: "Pintu Dibuka · Semua Aktiviti Bermula", d2e1d: "Sehari penuh keseronokan",
+        d2e2t: "Pelancaran Zon Kanak-kanak", d2e2d: "Permainan khas untuk si kecil",
+        d2e3t: "Lawatan Berpandu Kraftangan", d2e3d: "Temui artisan tempatan",
+        d2e4t: "Cabutan Bertuah – Pusingan 2", d2e4d: "Hadiah lebih besar malam ini!",
+        d3e1t: "Hari Terakhir – Pintu Dibuka", d3e1d: "Peluang terakhir menikmati aktiviti",
+        d3e2t: "Pertandingan Permainan Keluarga", d3e2d: "Daftar di gerai utama!",
+        d3e3t: "Persembahan Budaya Agung", d3e3d: "Semua kumpulan tampil bersama",
+        d3e4t: "🏆 CABUTAN BERTUAH AGUNG", d3e4d: "Hadiah Agung: Tunai RM5,000!",
+        d3e5t: "Majlis Penutup & Bunga Api 🎆", d3e5d: "Penutup spektakuler Fun Fair 2026",
+        locationTitle: "Lokasi & Hubungan", locationSub: "Padang Parkson Sibu, 96000 Sibu, Sarawak",
+        contactText: "Sertai kami di Padang Parkson Sibu. Parking percuma berdekatan.",
+        socialTitle: "Ikuti & Kongsi", socialSub: "Kekal terkini dan sebarkan keseronokan!",
+        shareBtn: "Kongsi Acara Ini", footerText: "© 2026 Majlis Perbandaran Sibu · Hak cipta terpelihara"
+      }
+    };
+
+    let currentLang = "en";
+    const langToggle = document.getElementById('langToggle');
+
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === "en" ? "bm" : "en";
+      langToggle.textContent = currentLang === "en" ? "🌐 BM" : "🌐 EN";
+      document.documentElement.lang = currentLang;
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+    });
+
+    // ===== SHARE FUNCTION (Web Share API) =====
+    function shareEvent() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Sibu Parkson Field Fun Fair 2026',
+          text: 'Join the Fun! 15-17 May 2026 — FREE entry!',
+          url: window.location.href
+        }).catch(err => console.log('Share cancelled'));
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      }
+    }
+
+    // ===== SCROLL REVEAL ANIMATION =====
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>
