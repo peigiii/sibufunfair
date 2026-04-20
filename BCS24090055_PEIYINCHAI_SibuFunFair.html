@@ -142,10 +142,15 @@
       padding: 50px 30px 40px;
       position: relative;
     }
-    .hero-art {
-      width: min(460px, 88vw);
-      margin-bottom: 20px;
-      animation: float 4s ease-in-out infinite;
+    .hero-img {
+      width: 100%;
+      max-width: 800px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      animation: float 6s ease-in-out infinite;
     }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -588,45 +593,8 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <!-- Fun Fair SVG Illustration -->
-      <svg class="hero-art" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" aria-label="Fun Fair Illustration">
-        <rect x="0" y="140" width="480" height="130" rx="20" fill="#e0f2fe" opacity="0.45"/>
-        <!-- Ferris Wheel -->
-        <g transform="translate(345,90)">
-          <circle cx="0" cy="0" r="78" fill="none" stroke="#c4b5fd" stroke-width="2.5"/>
-          <line x1="-78" y1="0" x2="78" y2="0" stroke="#c4b5fd" stroke-width="1.5"/>
-          <line x1="0" y1="-78" x2="0" y2="78" stroke="#c4b5fd" stroke-width="1.5"/>
-          <line x1="-55" y1="-55" x2="55" y2="55" stroke="#c4b5fd" stroke-width="1.5"/>
-          <line x1="55" y1="-55" x2="-55" y2="55" stroke="#c4b5fd" stroke-width="1.5"/>
-          <circle cx="0" cy="0" r="11" fill="#7c3aed"/>
-          <rect x="-10" y="-90" width="20" height="17" rx="5" fill="#f472b6"/>
-          <rect x="-10" y="73" width="20" height="17" rx="5" fill="#60a5fa"/>
-          <rect x="73" y="-10" width="17" height="20" rx="5" fill="#fbbf24"/>
-          <rect x="-90" y="-10" width="17" height="20" rx="5" fill="#34d399"/>
-          <line x1="0" y1="78" x2="0" y2="148" stroke="#6d28d9" stroke-width="2.5"/>
-          <line x1="-32" y1="148" x2="32" y2="148" stroke="#6d28d9" stroke-width="2.5"/>
-        </g>
-        <!-- Carousel -->
-        <g transform="translate(125,95)">
-          <polygon points="0,-82 -84,0 84,0" fill="#f9a8d4"/>
-          <polygon points="0,-82 -42,0 0,0" fill="#fbbf24"/>
-          <polygon points="0,-82 42,0 84,0" fill="#fbbf24"/>
-          <line x1="0" y1="-2" x2="0" y2="72" stroke="#7c3aed" stroke-width="2.5"/>
-          <line x1="-84" y1="0" x2="84" y2="0" stroke="#7c3aed" stroke-width="1.5"/>
-          <line x1="-84" y1="0" x2="-84" y2="72" stroke="#7c3aed" stroke-width="1.5"/>
-          <line x1="84" y1="0" x2="84" y2="72" stroke="#7c3aed" stroke-width="1.5"/>
-          <rect x="-88" y="67" width="176" height="13" rx="4" fill="#ddd6fe"/>
-          <ellipse cx="-46" cy="42" rx="13" ry="8" fill="#fff" stroke="#f472b6" stroke-width="1.5"/>
-          <ellipse cx="0" cy="52" rx="13" ry="8" fill="#fff" stroke="#60a5fa" stroke-width="1.5"/>
-          <ellipse cx="46" cy="42" rx="13" ry="8" fill="#fff" stroke="#fbbf24" stroke-width="1.5"/>
-        </g>
-        <!-- Balloons -->
-        <circle cx="36" cy="58" r="21" fill="#f472b6" opacity="0.9"/>
-        <circle cx="62" cy="31" r="17" fill="#a78bfa" opacity="0.9"/>
-        <circle cx="16" cy="28" r="15" fill="#fbbf24" opacity="0.9"/>
-        <circle cx="454" cy="38" r="19" fill="#34d399" opacity="0.9"/>
-        <circle cx="432" cy="12" r="15" fill="#60a5fa" opacity="0.9"/>
-      </svg>
+      <!-- Fun Fair Image -->
+      <img src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=1000&q=80" alt="Sibu Fun Fair" class="hero-img">
 
       <div class="badge">
         <span data-i18n="badgeText">✨ FREE ADMISSION · EVERYONE WELCOME ✨</span>
@@ -863,7 +831,7 @@
         </div>
         <div class="map-frame reveal">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15933.0!2d111.8235!3d2.3052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSibu%2C+Sarawak!5e0!3m2!1sen!2smy!4v1680000000"
+            src="https://maps.google.com/maps?q=sibu%20parkson%20field&t=&z=15&ie=UTF8&iwloc=&output=embed"
             allowfullscreen
             loading="lazy"
             title="Sibu Parkson Field Map">
